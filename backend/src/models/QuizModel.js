@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const QuizSchema = new Schema(
+const quizSchema = new Schema(
   {
     quiz_id: {
       type: String,
@@ -19,14 +19,14 @@ const QuizSchema = new Schema(
       type: String,
       required: true,
     },
-    items: {
-      type: String,
-      required: true,
-    },
-    word: {
-      type: String,
-      required: true,
-    },
+    items: [
+      {
+        word: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
     totalitems: {
       type: String,
       required: true,
@@ -35,4 +35,4 @@ const QuizSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("quiz", QuizSchema);
+module.exports = mongoose.model("quiz", quizSchema);

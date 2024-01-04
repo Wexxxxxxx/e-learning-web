@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const quiz = require("../models/QuizModel");
 
 const GetQuizId = async (req, res) => {
@@ -8,7 +9,7 @@ const GetQuizId = async (req, res) => {
       return res.status(400).json({ error: "No such info" });
     }
 
-    const result = await user.findById(id);
+    const result = await quiz.findById(id);
 
     return !result
       ? res.status(400).json({ error: "No such info" })
